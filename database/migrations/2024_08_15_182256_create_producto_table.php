@@ -11,22 +11,19 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('Encabezados', function (Blueprint $table) {
+        Schema::create('productos', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
-            $table->string('Nombre');
-            $table->string('Descripcion');
-            $table->integer('Cantidad');
-            $table->boolean('Activo');
+            $table->text('description');
+            $table->integer('price');
             $table->timestamps();
         });
     }
 
     /**
-     *Reverse the migrations.
+     * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::dropIfExists('Encabezados');
+        Schema::dropIfExists('productos');
     }
 };

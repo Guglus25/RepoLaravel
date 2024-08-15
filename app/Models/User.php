@@ -44,4 +44,23 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+    /**
+     * Get all of the comments for the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function encabezados(): HasMany
+    {
+        return $this->hasMany(encabezado::class);
+    }
+
+    /**
+     * The enabezadocantidad that belong to the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function enabezadocantidad(): BelongsToMany
+    {
+        return $this->belongsToMany(encabezado::class);
+    }
 }
